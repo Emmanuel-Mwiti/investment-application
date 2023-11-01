@@ -1,4 +1,4 @@
-package com.emmanuel.servlet;
+package com.emmanuel.auth;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,14 +20,15 @@ import java.io.PrintWriter;
 public class Login extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+
         String username = req.getParameter("username");
         String password = req.getParameter("password");
 
 
-
         if (username.equals("Emmanuel") && password.equals("1234")) {
-            RequestDispatcher dispatcher = req.getRequestDispatcher("./app/home.html");
-            dispatcher.include(req, resp);
+//            RequestDispatcher dispatcher = req.getRequestDispatcher("/home");
+//            dispatcher.forward(req, resp);
+            resp.sendRedirect("./home");
 
         } else {
             PrintWriter print = resp.getWriter();
