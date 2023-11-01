@@ -53,8 +53,8 @@ public class PortfolioBeanImpl implements PortfolioBeanI {
 
             for (Investment investment : portfolio.getInvestments()) {
                 cardBuilder.append("            <li>").append("Asset Class ").append(investment.getId()).append(": ").append(investment.getName()).append("</li>");
-            }
 
+            }
             cardBuilder.append("        </ul>");
             cardBuilder.append("        <div class=\"performance\">");
             cardBuilder.append("            <p>Performance: ").append(portfolio.getExpectedReturnOnInvestment()).append("%</p>");
@@ -69,17 +69,14 @@ public class PortfolioBeanImpl implements PortfolioBeanI {
 
     @Override
     public Investment addOrUpdateInvestment(Investment investment) {
-        // Implement the logic to add or update an investment
-        return investment;
+        return null;
     }
 
     @Override
     public void deleteInvestment(Investment investment) {
-        // Implement the logic to delete an investment
     }
 
     @Override
     public void deletePortfolio(Portfolio portfolio) {
-        // Implement the logic to delete a portfolio
     }
 }
