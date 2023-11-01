@@ -1,5 +1,8 @@
 package com.emmanuel.home;
 
+import com.emmanuel.app.bean.PortfolioBeanI;
+import com.emmanuel.app.bean.impl.PortfolioBeanImpl;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,10 +21,13 @@ import java.io.PrintWriter;
  */
 @WebServlet("/home")
 public class Home extends HttpServlet {
-    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        PortfolioBeanI portfolioBeanImp = new PortfolioBeanImpl();
 
-            PrintWriter print = resp.getWriter();
-            print.write("<html><body>Invalid login details <a href=\".\"> Hello, you are now logged in </a></body></html>");
+        String homeInfo = (String) req.getAttribute("homeInfo");
+        PrintWriter print = resp.getWriter();
+        print.write(portfolioBeanImp.portfolios());
+
 
     }
 }

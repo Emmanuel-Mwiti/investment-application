@@ -2,6 +2,7 @@ package com.emmanuel.auth;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,19 +17,19 @@ import java.io.PrintWriter;
  * @date: 10/31/23
  * @project: IntelliJ IDEA
  */
-@WebServlet("/login")
+@WebServlet(urlPatterns = "/login", initParams = {
+        @WebInitParam(name="username",value = "Emmanuel"),
+        @WebInitParam(name="password",value = "1234")
+})
 public class Login extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-
         String username = req.getParameter("username");
         String password = req.getParameter("password");
 
-
-        if (username.equals("Emmanuel") && password.equals("1234")) {
-//            RequestDispatcher dispatcher = req.getRequestDispatcher("/home");
-//            dispatcher.forward(req, resp);
-            resp.sendRedirect("./home");
+        if (username.equals(getInitParameter("username")) && password.equals(getInitParameter("password"))) {
+            req.setAttribute("homeInfo", "Welcome to investment Tracker App home page!!");
+            RequestDispatcher dispatcher = req.getRequestDispatcher("./home");
+            dispatcher.forward(req, resp);
 
         } else {
             PrintWriter print = resp.getWriter();
