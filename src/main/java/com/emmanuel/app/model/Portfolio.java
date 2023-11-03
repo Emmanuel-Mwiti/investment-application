@@ -2,6 +2,7 @@ package com.emmanuel.app.model;
 
 import org.apache.commons.lang.StringUtils;
 
+import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.util.List;
 
@@ -12,7 +13,7 @@ import java.util.List;
  * @date: 11/1/23
  * @project: IntelliJ IDEA
  */
-public class Portfolio {
+public class Portfolio implements Serializable {
     private Long id;
     private String name;
     private Long investmentHorizon;
@@ -70,18 +71,4 @@ public class Portfolio {
         this.investments = investments;
     }
 
-//    public String tableRow(){
-//
-//        StringBuilder trBuilder = new StringBuilder();
-//
-//        trBuilder.append("<tr>");
-////        trBuilder.append("<td>").append(StringUtils.trimToEmpty(getCode())).append("</td>");
-//        trBuilder.append("<td>").append(StringUtils.trimToEmpty(getName()));
-//        trBuilder.append("<td>").append(StringUtils.trimToEmpty(getName())).append("</td>");
-//        trBuilder.append("<td>").append(getBalance() == null? ""
-//                : new DecimalFormat("#,###.##").format(getBalance())).append("</td>");
-//        trBuilder.append("<tr>");
-//
-//        return trBuilder.toString();
-//    }
 }

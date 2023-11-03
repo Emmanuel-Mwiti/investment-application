@@ -2,4 +2,16 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <context-param>
+    <param-name>AppName</param-name>
+    <param-value>SYSTECH AFRICA INVESTMENT SOFTWARE</param-value>
+  </context-param>
+  <context-param>
+    <param-name>username</param-name>
+    <param-value>Emmanuel</param-value>
+  </context-param>
+  <context-param>
+    <param-name>password</param-name>
+    <param-value>1234</param-value>
+  </context-param>
 </web-app>

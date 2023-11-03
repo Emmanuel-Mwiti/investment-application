@@ -1,5 +1,7 @@
 package com.emmanuel.app.model;
 
+import java.io.Serializable;
+
 /**
  * Created by emmanuel on 11/1/23
  *
@@ -7,7 +9,7 @@ package com.emmanuel.app.model;
  * @date: 11/1/23
  * @project: IntelliJ IDEA
  */
-public class Investment {
+public class Investment implements Serializable {
     private Long id;
     private String name;
     private Double initialAmount;

@@ -46,22 +46,16 @@ public class PortfolioBeanImpl implements PortfolioBeanI {
 
 
         for (Portfolio portfolio : portfolios) {
-            cardBuilder.append("    <div class=\"portfolio-card\">");
-            cardBuilder.append("        <h3>").append(portfolio.getName()).append("</h3>");
-            cardBuilder.append("        <p class=\"portfolio-description\">").append(portfolio.getName()).append(" Portfolio.</p>");
-            cardBuilder.append("        <ul>");
-
-            for (Investment investment : portfolio.getInvestments()) {
-                cardBuilder.append("            <li>").append("Asset Class ").append(investment.getId()).append(": ").append(investment.getName()).append("</li>");
-
-            }
-            cardBuilder.append("        </ul>");
-            cardBuilder.append("        <div class=\"performance\">");
-            cardBuilder.append("            <p>Performance: ").append(portfolio.getExpectedReturnOnInvestment()).append("%</p>");
+            cardBuilder.append("    <tr>");
+            cardBuilder.append("        <td>").append(portfolio.getName()).append("</td>");
+            cardBuilder.append("        <td>").append(portfolio.getInvestmentHorizon()).append(" years</td>");
+            cardBuilder.append("        <td>").append(portfolio.getExpectedReturnOnInvestment()).append("%</td>");
+            cardBuilder.append("        <td>");
             cardBuilder.append("            <button class=\"analysis-button\">Analyze Risk</button>");
-            cardBuilder.append("        </div>");
-            cardBuilder.append("    </div>");
+            cardBuilder.append("        </td>");
+            cardBuilder.append("    </tr>");
         }
+
 
 
         return cardBuilder.toString();
