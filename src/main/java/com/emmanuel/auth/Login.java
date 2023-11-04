@@ -1,9 +1,10 @@
 package com.emmanuel.auth;
 
+import com.emmanuel.database.Database;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -27,6 +28,7 @@ public class Login extends HttpServlet {
         resp.sendRedirect("./");
 
     }
+
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
@@ -36,7 +38,7 @@ public class Login extends HttpServlet {
 
         String formattedDate = dateFormat.format(new Date());
         httpSession.setAttribute("loggedInId", formattedDate);
-        httpSession.setAttribute("username",username);
+        httpSession.setAttribute("username", username);
 
         if (username.equals(servletContext.getInitParameter("username")) && password.equals(servletContext.getInitParameter("password"))) {
             resp.sendRedirect("./home");

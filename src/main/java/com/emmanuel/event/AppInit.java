@@ -5,6 +5,8 @@ import com.emmanuel.database.Database;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
+
 
 /**
  * Created by emmanuel on 11/4/23
@@ -13,6 +15,7 @@ import javax.servlet.ServletContextListener;
  * @date: 11/4/23
  * @project: IntelliJ IDEA
  */
+@WebListener
 public class AppInit implements ServletContextListener {
 
     @Override
@@ -22,7 +25,7 @@ public class AppInit implements ServletContextListener {
         Database database = Database.getDbInstance();
 
         database.getPortfolios().add(new Portfolio(1L, "Savings", 5L, 20.0));
-        database.getPortfolios().add(new Portfolio(12L, "Retirement", 10L, 40.0));
+        database.getPortfolios().add(new Portfolio(1L, "Retirement", 10L, 40.0));
 
     }
 
