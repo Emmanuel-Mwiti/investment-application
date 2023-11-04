@@ -1,6 +1,7 @@
 package com.emmanuel.event;
 
 import com.emmanuel.app.model.Portfolio;
+import com.emmanuel.app.model.User;
 import com.emmanuel.database.Database;
 
 import javax.servlet.ServletContextEvent;
@@ -23,6 +24,9 @@ public class AppInit implements ServletContextListener {
         System.out.println("*************** Initializing database *************");
 
         Database database = Database.getDbInstance();
+
+        database.getUsers().add(new User(0L,"emmanuel.mwiti@test.com", "1234","To buy a car"));
+        database.getUsers().add(new User(0L, "shady.amuku@test.com", "1234","To buy a car"));
 
         database.getPortfolios().add(new Portfolio(1L, "Savings", 5L, 20.0));
         database.getPortfolios().add(new Portfolio(1L, "Retirement", 10L, 40.0));

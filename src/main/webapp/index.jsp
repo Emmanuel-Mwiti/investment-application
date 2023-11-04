@@ -1,14 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Investment App Login</title>
-    <!-- Load Bootstrap and jQuery libraries -->
+    <title>Investment App</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.7.0/dist/js/bootstrap.min.js"></script>
-    <!-- Add a link to your custom styles -->
     <link rel="stylesheet" href="#">
 </head>
 <body style="background-color: #f5f5f5;">
@@ -29,13 +28,12 @@
                             <label for="password">Password</label>
                             <input type="password" class="form-control" id="password" name="password" required>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block" style="background-color: #007BFF; border: none;">Login</button>
                     </form>
                     <p class="mt-3">
                         <a href="#" style="color: #007BFF;">Forgot Password?</a>
                     </p>
                     <p>
-                        Don't have an account? <a href="#" style="color: #007BFF;">Sign Up</a>
+                        Don't have an account? <a href="sign-up.jsp" style="color: #007BFF;">Sign Up</a>
                     </p>
                 </div>
             </div>
@@ -51,16 +49,14 @@
 
             if (!isValidEmail(username) && !isValidUsername(username)) {
                 alert("Please enter a valid email or username.");
+                e.preventDefault();
                 return;
             }
 
             if (password.length < 4) {
                 alert("Password must be at least 4 characters long.");
-                return;
+                e.preventDefault();
             }
-
-            // If validations pass, you can submit the form to your server for further processing.
-            // Example: $.post("/login", { username: username, password: password }, function(data) { /* Handle the response */ });
         });
 
         function isValidEmail(email) {
@@ -69,8 +65,6 @@
         }
 
         function isValidUsername(username) {
-            // Define your own rules for valid usernames if needed.
-            // For example, only allow alphanumeric characters.
             var usernameRegex = /^[a-zA-Z0-9]+$/;
             return usernameRegex.test(username);
         }

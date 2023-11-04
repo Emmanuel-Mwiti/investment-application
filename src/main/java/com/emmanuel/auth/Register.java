@@ -1,6 +1,7 @@
-package com.emmanuel.action;
+package com.emmanuel.auth;
 
-import com.emmanuel.app.view.html.AddInvestmentPage;
+import com.emmanuel.app.model.User;
+import com.emmanuel.database.Database;
 import org.apache.commons.lang.StringUtils;
 
 import javax.servlet.ServletException;
@@ -18,14 +19,18 @@ import java.io.IOException;
  * @date: 11/4/23
  * @project: IntelliJ IDEA
  */
-@WebServlet("/add-investment")
-public class AddInvestment extends HttpServlet {
+@WebServlet("/sign-up")
+public class Register extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         HttpSession httpSession = req.getSession();
 
         if (StringUtils.isNotBlank((String) httpSession.getAttribute("loggedInId"))) {
-
-            new AddInvestmentPage().renderHtml(req, resp);
+            Database dbInstance = Database.getDbInstance();
+            String username = req.getParameter("username");
+            String password = req.getParameter("password");
+            String investmentGoal = req.getParameter("investmentGoal");
+            dbInstance.getUsers().add(new User(1L, username, password, investmentGoal));
+            resp.sendRedirect("./");
 
         } else
             resp.sendRedirect("./");

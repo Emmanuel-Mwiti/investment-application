@@ -10,6 +10,7 @@ import java.io.Serializable;
  * @project: IntelliJ IDEA
  */
 public class User implements Serializable {
+    private Long id;
     private String name;
     private String password;
     private String investmentGoal;
@@ -17,10 +18,19 @@ public class User implements Serializable {
     public User() {
     }
 
-    public User(String name, String password, String investmentGoal) {
+    public User(Long id, String name, String password, String investmentGoal) {
         this.name = name;
         this.password = password;
         this.investmentGoal = investmentGoal;
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {

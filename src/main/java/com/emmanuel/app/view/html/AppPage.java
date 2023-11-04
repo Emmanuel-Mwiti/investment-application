@@ -32,7 +32,7 @@ public class AppPage implements Serializable {
                 "<div class=\"user-card\">" +
                 "    <h2>User Details</h2>" +
                 "    <p>Username: " + session.getAttribute("username") + "</p>" +
-                "    <p>Email: " + session.getAttribute("email") + "</p>" +
+                "    <p>Investment Goal: " + session.getAttribute("investmentGoal") + " please before spending be aware of this!</p>" +
                 "</div>" +
                 "<div class=\"welcome\">" +
                 "    <p>This is your Portfolios dashboard.</p>" +
