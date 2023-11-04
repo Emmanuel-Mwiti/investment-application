@@ -13,18 +13,16 @@ public class Investment implements Serializable {
     private Long id;
     private String name;
     private Double initialAmount;
-    private Double expectedAnnualAverageReturn;
     private Double targetAllocation;
     private Double finalAmount;
 
     public Investment() {
     }
 
-    public Investment(Long id, String name, Double initialAmount, Double expectedAnnualAverageReturn, Double targetAllocation, Double finalAmount) {
+    public Investment(Long id, String name, Double initialAmount, Double targetAllocation, Double finalAmount) {
         this.id = id;
         this.name = name;
         this.initialAmount = initialAmount;
-        this.expectedAnnualAverageReturn = expectedAnnualAverageReturn;
         this.targetAllocation = targetAllocation;
         this.finalAmount = finalAmount;
     }
@@ -59,14 +57,6 @@ public class Investment implements Serializable {
 
     public void setInitialInvestmentAmount(Double initialAmount) {
         this.initialAmount = initialAmount;
-    }
-
-    public Double getExpectedAnnualAverageReturn() {
-        return expectedAnnualAverageReturn;
-    }
-
-    public void setExpectedAnnualAverageReturn(Double expectedAnnualAverageReturn) {
-        this.expectedAnnualAverageReturn = expectedAnnualAverageReturn;
     }
 
     public Double getTargetAllocation() {

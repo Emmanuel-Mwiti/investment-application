@@ -23,12 +23,11 @@ public class Portfolio implements Serializable {
     public Portfolio() {
     }
 
-    public Portfolio(Long id, String name, Long investmentHorizon, Double expectedReturnOnInvestment, List<Investment> investments) {
+    public Portfolio(Long id, String name, Long investmentHorizon, Double expectedReturnOnInvestment) {
         this.id = id;
         this.name = name;
         this.investmentHorizon = investmentHorizon;
         this.expectedReturnOnInvestment = expectedReturnOnInvestment;
-        this.investments = investments;
     }
 
     public Long getId() {

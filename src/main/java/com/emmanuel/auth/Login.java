@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -31,12 +32,13 @@ public class Login extends HttpServlet {
         String password = req.getParameter("password");
         ServletContext servletContext = getServletContext();
         HttpSession httpSession = req.getSession(true);
-        httpSession.setAttribute("loggedInId", new Date().getTime() + "");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        String formattedDate = dateFormat.format(new Date());
+        httpSession.setAttribute("loggedInId", formattedDate);
+        httpSession.setAttribute("username",username);
 
         if (username.equals(servletContext.getInitParameter("username")) && password.equals(servletContext.getInitParameter("password"))) {
-            servletContext.setAttribute("username",username);
-//            RequestDispatcher requestDispatcher = req.getRequestDispatcher("./home");
-//            requestDispatcher.forward(req,resp);
             resp.sendRedirect("./home");
 
         } else {
