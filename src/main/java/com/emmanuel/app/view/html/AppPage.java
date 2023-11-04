@@ -49,6 +49,7 @@ public class AppPage implements Serializable {
                 "<div class=\"add-portfolio-button-container\">" +
                 "    <a class=\"add-portfolio-button\" href=\"add-portfolio\">Add Portfolio</a>" +
                 "</div>" +
+                "<a href=\"./logout\">Logout</a>" +
                 "</body>" +
                 "</html>");
     }
