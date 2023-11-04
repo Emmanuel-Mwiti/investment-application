@@ -30,7 +30,7 @@ public class AddPortfolio {
                 "</div>" +
                 "<div class=\"form-container\">" +
                 "    <h2>Add Portfolio</h2>" +
-                "    <form action=\"add-portfolio-action\" method=\"post\">" +
+                "    <form action=\"add-portfolio\" method=\"post\">" +
                 "        <div class=\"form-group\">" +
                 "            <label class=\"form-label\" for=\"portfolioName\">Portfolio Name:</label>" +
                 "            <input class=\"form-input\" type=\"text\" id=\"portfolioName\" name=\"portfolioName\" required>" +

@@ -3,6 +3,7 @@ package com.emmanuel.app.bean.impl;
 import com.emmanuel.app.bean.PortfolioBeanI;
 import com.emmanuel.app.model.Investment;
 import com.emmanuel.app.model.Portfolio;
+import com.emmanuel.database.Database;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,10 +11,7 @@ import java.util.List;
 public class PortfolioBeanImpl implements PortfolioBeanI {
         @Override
         public String portfolios() {
-            List<Portfolio> portfolios = new ArrayList<>();
-
-            portfolios.add(new Portfolio(1L, "Savings", 5L, 20.0));
-            portfolios.add(new Portfolio(12L, "Retirement", 10L, 40.0));
+            List<Portfolio> portfolios = Database.getDbInstance().getPortfolios();
 
             StringBuilder cardBuilder = new StringBuilder();
 
