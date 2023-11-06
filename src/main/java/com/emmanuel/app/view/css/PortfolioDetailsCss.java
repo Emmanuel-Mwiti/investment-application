@@ -25,6 +25,10 @@ public class PortfolioDetailsCss {
             ".add-investment-button:hover {\n" +
             "    background-color: #0056b3;\n" +
             "}\n" +
+            ".button-container {\n" +
+            "    display: flex;\n" +
+            "    justify-content: space-between;\n" +
+            "    }\n" +
             "</style>";
 
     public String getStyle() {

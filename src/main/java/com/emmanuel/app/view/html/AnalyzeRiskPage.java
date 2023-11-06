@@ -7,5 +7,5 @@ package com.emmanuel.app.view.html;
  * @date: 11/4/23
  * @project: IntelliJ IDEA
  */
-public class AnalyzeRisk {
+public class AnalyzeRiskPage {
 }

@@ -1,5 +1,6 @@
-package com.emmanuel.action;
+package com.emmanuel.app.action;
 
+import com.emmanuel.app.view.html.PortfolioDetailsPage;
 import org.apache.commons.lang.StringUtils;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,11 +22,8 @@ public class PortfolioDetails extends HttpServlet {
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession httpSession = req.getSession();
 
-        if (StringUtils.isNotBlank((String) httpSession.getAttribute("loggedInId"))) {
+            new PortfolioDetailsPage().renderHtml(req,resp);
 
-            new com.emmanuel.app.view.html.PortfolioDetails().renderHtml(req,resp);
 
-        } else
-            resp.sendRedirect("./");
     }
 }

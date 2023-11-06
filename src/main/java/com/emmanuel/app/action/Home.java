@@ -1,9 +1,10 @@
-package com.emmanuel.action;
+package com.emmanuel.app.action;
 
 import com.emmanuel.app.bean.PortfolioBeanI;
 import com.emmanuel.app.bean.impl.PortfolioBeanImpl;
 import com.emmanuel.app.view.html.AppPage;
 import org.apache.commons.lang.StringUtils;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,10 +18,9 @@ public class Home extends HttpServlet {
         PortfolioBeanI portfolioBean = new PortfolioBeanImpl();
         HttpSession session = req.getSession();
 
-        if (StringUtils.isNotBlank((String) session.getAttribute("loggedInId"))) {
-            new AppPage().renderHtml(req, resp, portfolioBean.portfolios());
-        } else {
-            resp.sendRedirect("./");
-        }
+        new AppPage().renderHtml(req, resp,
+                "<h2>Portfolios</h2>" +
+                        portfolioBean.portfolios());
+
     }
 }

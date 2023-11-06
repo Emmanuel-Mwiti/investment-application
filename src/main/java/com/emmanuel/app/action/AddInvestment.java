@@ -1,9 +1,8 @@
-package com.emmanuel.action;
+package com.emmanuel.app.action;
 
 import com.emmanuel.app.view.html.AddInvestmentPage;
 import org.apache.commons.lang.StringUtils;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -22,12 +21,6 @@ import java.io.IOException;
 public class AddInvestment extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         HttpSession httpSession = req.getSession();
-
-        if (StringUtils.isNotBlank((String) httpSession.getAttribute("loggedInId"))) {
-
             new AddInvestmentPage().renderHtml(req, resp);
-
-        } else
-            resp.sendRedirect("./");
     }
 }

@@ -1,9 +1,9 @@
 package com.emmanuel.app.model;
 
+
 import org.apache.commons.lang.StringUtils;
 
 import java.io.Serializable;
-import java.text.DecimalFormat;
 import java.util.List;
 
 /**
@@ -14,20 +14,28 @@ import java.util.List;
  * @project: IntelliJ IDEA
  */
 public class Portfolio implements Serializable {
+    private static long nextId = 1;
     private Long id;
     private String name;
     private Long investmentHorizon;
     private Double expectedReturnOnInvestment;
+    private Double performance;
+    private String comment;
     private List<Investment> investments;
 
     public Portfolio() {
+        this.id = generateNextId();
     }
 
-    public Portfolio(Long id, String name, Long investmentHorizon, Double expectedReturnOnInvestment) {
-        this.id = id;
+    public Portfolio(String name, Long investmentHorizon, Double expectedReturnOnInvestment) {
+        this.id = generateNextId();
         this.name = name;
         this.investmentHorizon = investmentHorizon;
         this.expectedReturnOnInvestment = expectedReturnOnInvestment;
+    }
+
+    private Long generateNextId() {
+        return nextId++;
     }
 
     public Long getId() {
@@ -37,7 +45,6 @@ public class Portfolio implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-
     public String getName() {
         return name;
     }
@@ -62,6 +69,21 @@ public class Portfolio implements Serializable {
         this.expectedReturnOnInvestment = expectedReturnOnInvestment;
     }
 
+    public Double getPerformance() {
+        return performance;
+    }
+
+    public void setPerformance(Double performance) {
+        this.performance = performance;
+    }
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
     public List<Investment> getInvestments() {
         return investments;
     }
@@ -69,5 +91,22 @@ public class Portfolio implements Serializable {
     public void setInvestments(List<Investment> investments) {
         this.investments = investments;
     }
+
+    public String tableRow() {
+        StringBuilder trBuilder = new StringBuilder();
+
+        trBuilder.append("<tr>");
+        trBuilder.append("<td>").append(StringUtils.trimToEmpty(getName())).append("</td>");
+        trBuilder.append("<td>").append(getInvestmentHorizon() == null ? " " : getInvestmentHorizon()).append("</td>");
+        trBuilder.append("<td>").append(getExpectedReturnOnInvestment() == null ? "" : getExpectedReturnOnInvestment()).append("</td>");
+        trBuilder.append("<td>").append(getPerformance() == null ? "" : getPerformance()).append("</td>");
+        trBuilder.append("<td>").append(StringUtils.trimToEmpty("Over performed")).append("</td>");
+        trBuilder.append("</tr>");
+
+        return trBuilder.toString();
+    }
+
+
+
 
 }

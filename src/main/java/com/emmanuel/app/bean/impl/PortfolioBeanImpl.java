@@ -1,47 +1,44 @@
 package com.emmanuel.app.bean.impl;
 
 import com.emmanuel.app.bean.PortfolioBeanI;
-import com.emmanuel.app.model.Investment;
 import com.emmanuel.app.model.Portfolio;
 import com.emmanuel.database.Database;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class PortfolioBeanImpl implements PortfolioBeanI {
-        @Override
-        public String portfolios() {
-            List<Portfolio> portfolios = Database.getDbInstance().getPortfolios();
 
-            StringBuilder cardBuilder = new StringBuilder();
+    @Override
+    public String portfolios() {
+        List<Portfolio> portfolios = Database.getDbInstance().getPortfolios();
 
-            for (Portfolio portfolio : portfolios) {
-                cardBuilder.append("    <tr>");
-                cardBuilder.append("        <td>").append(portfolio.getName()).append("</td>");
-                cardBuilder.append("        <td>").append(portfolio.getInvestmentHorizon()).append(" years</td>");
-                cardBuilder.append("        <td>").append(portfolio.getExpectedReturnOnInvestment()).append("%</td>");
-                cardBuilder.append("        <td>40%</td>");
-                cardBuilder.append("        <td>Over performed</td>");
-                cardBuilder.append("        <td>");
-                cardBuilder.append("<a class=\"delete-portfolio-button\" href=\"./portfolio-details\">Details</a>");
-                cardBuilder.append("        </td>");
-                cardBuilder.append("    </tr>");
-            }
+        StringBuilder cardBuilder = new StringBuilder();
 
-            return cardBuilder.toString();
-        }
+        cardBuilder.append("<table><tr>" +
+                "<th>Portfolio Name</th>" +
+                "<th>Investment Horizon(years)</th>" +
+                "<th>Expected ROI(%)</th>" +
+                "<th>Performance(%)</th>" +
+                "<th>Comment Based on expected ROI</th>" +
+                "</tr>");
 
+        for (Portfolio portfolio : portfolios)
+            cardBuilder.append(portfolio.tableRow());
 
-        @Override
-    public Investment addOrUpdateInvestment(Investment investment) {
-        return null;
+        cardBuilder.append("</table>");
+
+        return cardBuilder.toString();
     }
 
     @Override
-    public void deleteInvestment(Investment investment) {
+    public Portfolio addPortfolio(Portfolio portfolio) {
+        Database database = Database.getDbInstance();
+        database.getPortfolios().add(portfolio);
+        return portfolio;
+
     }
 
     @Override
-    public void deletePortfolio(Portfolio portfolio) {
+    public void deletePortfolio(Portfolio investment) {
     }
 }

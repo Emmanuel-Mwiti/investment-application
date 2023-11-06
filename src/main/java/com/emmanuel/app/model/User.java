@@ -2,27 +2,27 @@ package com.emmanuel.app.model;
 
 import java.io.Serializable;
 
-/**
- * Created by emmanuel on 11/3/23
- *
- * @author: emmanuel
- * @date: 11/3/23
- * @project: IntelliJ IDEA
- */
 public class User implements Serializable {
+    private static long nextId = 1;
+
     private Long id;
     private String name;
     private String password;
     private String investmentGoal;
 
     public User() {
+        this.id = generateNextId();
     }
 
-    public User(Long id, String name, String password, String investmentGoal) {
+    public User(String name, String password, String investmentGoal) {
+        this.id = generateNextId();
         this.name = name;
         this.password = password;
         this.investmentGoal = investmentGoal;
-        this.id = id;
+    }
+
+    private Long generateNextId() {
+        return nextId++;
     }
 
     public Long getId() {
@@ -56,6 +56,4 @@ public class User implements Serializable {
     public void setInvestmentGoal(String investmentGoal) {
         this.investmentGoal = investmentGoal;
     }
-
-
 }

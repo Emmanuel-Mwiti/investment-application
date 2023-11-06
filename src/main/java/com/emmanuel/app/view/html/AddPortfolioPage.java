@@ -8,7 +8,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class AddPortfolio {
+public class AddPortfolioPage {
     public void renderHtml(HttpServletRequest request, HttpServletResponse response) throws IOException {
         HttpSession session = request.getSession();
 
@@ -33,7 +33,7 @@ public class AddPortfolio {
                 "    <form action=\"add-portfolio\" method=\"post\">" +
                 "        <div class=\"form-group\">" +
                 "            <label class=\"form-label\" for=\"portfolioName\">Portfolio Name:</label>" +
-                "            <input class=\"form-input\" type=\"text\" id=\"portfolioName\" name=\"portfolioName\" required>" +
+                "            <input class=\"form-input\" type=\"text\" id=\"portfolioName\" name=\"name\" required>" +
                 "        </div>" +
                 "        <div class=\"form-group\">" +
                 "            <label class=\"form-label\" for=\"investmentHorizon\">Investment Horizon (years):</label>" +
@@ -41,7 +41,7 @@ public class AddPortfolio {
                 "        </div>" +
                 "        <div class=\"form-group\">" +
                 "            <label class=\"form-label\" for=\"expectedROI\">Expected ROI (%):</label>" +
-                "            <input class=\"form-input\" type=\"number\" id=\"expectedROI\" name=\"expectedROI\" required>" +
+                "            <input class=\"form-input\" type=\"number\" id=\"expectedROI\" name=\"expectedReturnOnInvestment\" required>" +
                 "        </div>" +
                 "        <div class=\"investment-list\">" +
                 "            <h3>Investments</h3>" +

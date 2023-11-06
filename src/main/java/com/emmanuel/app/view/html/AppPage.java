@@ -26,7 +26,7 @@ public class AppPage implements Serializable {
                 "</head>" +
                 "<body>" +
                 "<div class=\"header\">" +
-                "    <h1>Welcome Back, " + session.getAttribute("username") + "!</h1>" +
+                "    <h1>Welcome, " + session.getAttribute("username") + "!</h1>" +
                 "    <h2>Your login time is: " + session.getAttribute("loggedInId") + "!</h2>" +
                 "</div>" +
                 "<div class=\"user-card\">" +
@@ -35,16 +35,7 @@ public class AppPage implements Serializable {
                 "    <p>Investment Goal: " + session.getAttribute("investmentGoal") + " please before spending be aware of this!</p>" +
                 "</div>" +
                 "<div class=\"welcome\">" +
-                "    <p>This is your Portfolios dashboard.</p>" +
-                "<table>" +
-                "    <tr>" +
-                "        <th>Portfolio Name</th>" +
-                "        <th>Investment Horizon</th>" +
-                "        <th>Expected ROI</th>" +
-                "        <th>Performance</th>" +
-                "        <th>Comment Based on expected ROI</th>" +
                 content +
-                "</table>" +
                 "</div>" +
                 "<div class=\"add-portfolio-button-container\">" +
                 "    <a class=\"add-portfolio-button\" href=\"add-portfolio\">Add Portfolio</a>" +

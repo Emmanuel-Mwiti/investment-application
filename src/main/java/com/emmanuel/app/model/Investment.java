@@ -1,5 +1,7 @@
 package com.emmanuel.app.model;
 
+import com.emmanuel.app.model.AssetClass;
+
 import java.io.Serializable;
 
 /**
@@ -11,7 +13,7 @@ import java.io.Serializable;
  */
 public class Investment implements Serializable {
     private Long id;
-    private String name;
+    private AssetClass assetClass;
     private Double initialAmount;
     private Double targetAllocation;
     private Double finalAmount;
@@ -19,9 +21,9 @@ public class Investment implements Serializable {
     public Investment() {
     }
 
-    public Investment(Long id, String name, Double initialAmount, Double targetAllocation, Double finalAmount) {
+    public Investment(Long id, AssetClass assetClass, Double initialAmount, Double targetAllocation, Double finalAmount) {
         this.id = id;
-        this.name = name;
+        this.assetClass = assetClass;
         this.initialAmount = initialAmount;
         this.targetAllocation = targetAllocation;
         this.finalAmount = finalAmount;
@@ -43,13 +45,14 @@ public class Investment implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public AssetClass getAssetClass() {
+        return assetClass;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setAssetClass(AssetClass assetClass) {
+        this.assetClass = assetClass;
     }
+
 
     public Double getInitialInvestmentAmount() {
         return initialAmount;

@@ -49,7 +49,7 @@ public class Login extends HttpServlet {
 
             } else {
                 PrintWriter print = resp.getWriter();
-                print.write("<html><body>Invalid login details <a href=\".\"> Login again. If you are not signed up, please sign up </a></body></html>");
+                print.write("<html><body>Invalid login details <a href=\".\"> Login again. </a></body></html>");
             }
         }
 

@@ -25,11 +25,11 @@ public class AppInit implements ServletContextListener {
 
         Database database = Database.getDbInstance();
 
-        database.getUsers().add(new User(0L,"emmanuel.mwiti@test.com", "1234","To buy a car"));
-        database.getUsers().add(new User(0L, "shady.amuku@test.com", "1234","To buy a car"));
+        database.getUsers().add(new User("emmanuel.mwiti@test.com", "1234","To buy a car"));
+        database.getUsers().add(new User("shady.amuku@test.com", "1234","To buy a land"));
 
-        database.getPortfolios().add(new Portfolio(1L, "Savings", 5L, 20.0));
-        database.getPortfolios().add(new Portfolio(1L, "Retirement", 10L, 40.0));
+        database.getPortfolios().add(new Portfolio("Savings", 5L, 20.0));
+        database.getPortfolios().add(new Portfolio("Retirement", 10L, 40.0));
 
     }
 
