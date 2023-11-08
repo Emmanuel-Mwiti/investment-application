@@ -24,10 +24,6 @@ public class AddPortfolioPage {
                 "<link rel=\"stylesheet\" type=\"text/css\" href=\"AddPortfolio.css\">" +
                 "</head>" +
                 "<body>" +
-                "<div class=\"header\">" +
-                "    <h1>Welcome Back, " + session.getAttribute("username") + "!</h1>" +
-                "    <h2>Your login time is: " + session.getAttribute("loggedInId") + "!</h2>" +
-                "</div>" +
                 "<div class=\"form-container\">" +
                 "    <h2>Add Portfolio</h2>" +
                 "    <form action=\"add-portfolio\" method=\"post\">" +

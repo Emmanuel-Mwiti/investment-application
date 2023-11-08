@@ -2,7 +2,9 @@ package com.emmanuel.app.action;
 
 import com.emmanuel.app.bean.PortfolioBeanI;
 import com.emmanuel.app.bean.impl.PortfolioBeanImpl;
+import com.emmanuel.app.model.entity.Portfolio;
 import com.emmanuel.app.view.html.AppPage;
+import com.emmanuel.app.view.html.CustomHtml;
 import org.apache.commons.lang.StringUtils;
 
 import javax.servlet.annotation.WebServlet;
@@ -20,7 +22,7 @@ public class Home extends HttpServlet {
 
         new AppPage().renderHtml(req, resp,
                 "<h2>Portfolios</h2>" +
-                        portfolioBean.portfolios());
+                        portfolioBean.portfolios(), 0);
 
     }
 }

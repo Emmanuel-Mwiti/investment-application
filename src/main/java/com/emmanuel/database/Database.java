@@ -1,12 +1,10 @@
 package com.emmanuel.database;
 
-import com.emmanuel.app.model.Portfolio;
-import com.emmanuel.app.model.User;
+import com.emmanuel.app.model.entity.Portfolio;
+import com.emmanuel.app.model.entity.User;
 
 import java.io.Serializable;
-import java.text.DateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -31,6 +29,14 @@ public class Database implements Serializable {
 
     public List<Portfolio> getPortfolios() {
         return portfolios;
+    }
+    public Portfolio findPortfolioById(Long portfolioId) {
+        for (Portfolio portfolio : portfolios) {
+            if (portfolio.getId().equals(portfolioId)) {
+                return portfolio;
+            }
+        }
+        return null; // Portfolio not found
     }
 
     public void setPortfolios(List<Portfolio> portfolios) {

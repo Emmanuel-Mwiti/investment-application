@@ -1,17 +1,9 @@
-package com.emmanuel.app.model;
-
-import com.emmanuel.app.model.AssetClass;
+package com.emmanuel.app.model.entity;
 
 import java.io.Serializable;
 
-/**
- * Created by emmanuel on 11/1/23
- *
- * @author: emmanuel
- * @date: 11/1/23
- * @project: IntelliJ IDEA
- */
 public class Investment implements Serializable {
+    private static long nextId = 1;
     private Long id;
     private AssetClass assetClass;
     private Double initialAmount;
@@ -19,14 +11,19 @@ public class Investment implements Serializable {
     private Double finalAmount;
 
     public Investment() {
+        this.id = generateNextId();
     }
 
-    public Investment(Long id, AssetClass assetClass, Double initialAmount, Double targetAllocation, Double finalAmount) {
-        this.id = id;
+    public Investment(AssetClass assetClass, Double initialAmount, Double targetAllocation, Double finalAmount) {
+        this.id = generateNextId();
         this.assetClass = assetClass;
         this.initialAmount = initialAmount;
         this.targetAllocation = targetAllocation;
         this.finalAmount = finalAmount;
+    }
+
+    private Long generateNextId() {
+        return nextId++;
     }
 
     public Double getFinalValue() {
@@ -41,9 +38,6 @@ public class Investment implements Serializable {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public AssetClass getAssetClass() {
         return assetClass;
@@ -52,7 +46,6 @@ public class Investment implements Serializable {
     public void setAssetClass(AssetClass assetClass) {
         this.assetClass = assetClass;
     }
-
 
     public Double getInitialInvestmentAmount() {
         return initialAmount;

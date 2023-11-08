@@ -1,6 +1,9 @@
-package com.emmanuel.app.model;
+package com.emmanuel.app.model.entity;
 
 
+import com.emmanuel.app.model.entity.Investment;
+import com.emmanuel.app.view.html.ManuHtmlForm;
+import com.emmanuel.app.view.html.ManuTableColumnHeader;
 import org.apache.commons.lang.StringUtils;
 
 import java.io.Serializable;
@@ -13,9 +16,11 @@ import java.util.List;
  * @date: 11/1/23
  * @project: IntelliJ IDEA
  */
+//@ManuHtmlForm(label = "Portfolios", url = "./add-portfolio")
 public class Portfolio implements Serializable {
     private static long nextId = 1;
     private Long id;
+    //    @ManuTableColumnHeader(header = "Portfolio Name")
     private String name;
     private Long investmentHorizon;
     private Double expectedReturnOnInvestment;
@@ -45,6 +50,7 @@ public class Portfolio implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
     public String getName() {
         return name;
     }
@@ -76,6 +82,7 @@ public class Portfolio implements Serializable {
     public void setPerformance(Double performance) {
         this.performance = performance;
     }
+
     public String getComment() {
         return comment;
     }
@@ -94,19 +101,24 @@ public class Portfolio implements Serializable {
 
     public String tableRow() {
         StringBuilder trBuilder = new StringBuilder();
-
         trBuilder.append("<tr>");
         trBuilder.append("<td>").append(StringUtils.trimToEmpty(getName())).append("</td>");
         trBuilder.append("<td>").append(getInvestmentHorizon() == null ? " " : getInvestmentHorizon()).append("</td>");
         trBuilder.append("<td>").append(getExpectedReturnOnInvestment() == null ? "" : getExpectedReturnOnInvestment()).append("</td>");
         trBuilder.append("<td>").append(getPerformance() == null ? "" : getPerformance()).append("</td>");
         trBuilder.append("<td>").append(StringUtils.trimToEmpty("Over performed")).append("</td>");
+
+        trBuilder.append("<td><a href='portfolio-details?portfolioId=").append(getId()).append("'>View Details</a></td>");
+
+        trBuilder.append("<td><form method='post' action='delete-portfolio'>");
+        trBuilder.append("<input type='hidden' name='portfolioId' value='").append(getId()).append("'>");
+        trBuilder.append("<button type='submit'>Delete</button>");
+        trBuilder.append("</form></td>");
+
         trBuilder.append("</tr>");
 
         return trBuilder.toString();
     }
-
-
 
 
 }

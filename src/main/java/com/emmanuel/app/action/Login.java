@@ -1,10 +1,8 @@
-package com.emmanuel.auth;
+package com.emmanuel.app.action;
 
-import com.emmanuel.app.model.User;
+import com.emmanuel.app.model.entity.User;
 import com.emmanuel.database.Database;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,7 +13,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by emmanuel on 10/31/23

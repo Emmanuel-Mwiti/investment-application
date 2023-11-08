@@ -1,7 +1,7 @@
 package com.emmanuel.app.bean.impl;
 
 import com.emmanuel.app.bean.UserBeanI;
-import com.emmanuel.app.model.User;
+import com.emmanuel.app.model.entity.User;
 import com.emmanuel.database.Database;
 
 /**

@@ -1,6 +1,6 @@
 package com.emmanuel.app.bean;
 
-import com.emmanuel.app.model.Portfolio;
+import com.emmanuel.app.model.entity.Portfolio;
 
 public interface PortfolioBeanI {
     String portfolios();

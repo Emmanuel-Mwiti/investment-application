@@ -2,12 +2,9 @@ package com.emmanuel.app.action;
 
 import com.emmanuel.app.bean.UserBeanI;
 import com.emmanuel.app.bean.impl.UserBeanImpl;
-import com.emmanuel.app.model.User;
-import com.emmanuel.database.Database;
-import org.apache.commons.lang.StringUtils;
+import com.emmanuel.app.model.entity.User;
 
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;

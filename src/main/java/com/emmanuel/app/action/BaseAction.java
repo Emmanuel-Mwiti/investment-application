@@ -1,10 +1,5 @@
 package com.emmanuel.app.action;
 
-import com.emmanuel.app.bean.PortfolioBeanI;
-import com.emmanuel.app.bean.impl.PortfolioBeanImpl;
-import com.emmanuel.app.model.Portfolio;
-import org.apache.commons.beanutils.BeanUtils;
-
 import javax.servlet.http.HttpServlet;
 import java.beans.BeanInfo;
 import java.beans.IntrospectionException;

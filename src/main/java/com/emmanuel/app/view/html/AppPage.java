@@ -1,5 +1,6 @@
 package com.emmanuel.app.view.html;
 
+import com.emmanuel.app.view.Toolbar.TopToolBar;
 import com.emmanuel.app.view.css.AppCss;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,7 +12,7 @@ import java.io.Serializable;
 
 public class AppPage implements Serializable {
 
-    public void renderHtml(HttpServletRequest request, HttpServletResponse response, String content) throws IOException {
+    public void renderHtml(HttpServletRequest request, HttpServletResponse response, String content, int activeMenu) throws IOException {
         HttpSession session = request.getSession();
 
         PrintWriter print = response.getWriter();
@@ -35,12 +36,9 @@ public class AppPage implements Serializable {
                 "    <p>Investment Goal: " + session.getAttribute("investmentGoal") + " please before spending be aware of this!</p>" +
                 "</div>" +
                 "<div class=\"welcome\">" +
+                new TopToolBar().menu(activeMenu)+
                 content +
                 "</div>" +
-                "<div class=\"add-portfolio-button-container\">" +
-                "    <a class=\"add-portfolio-button\" href=\"add-portfolio\">Add Portfolio</a>" +
-                "</div>" +
-                "<a href=\"./logout\">Logout</a>" +
                 "</body>" +
                 "</html>");
     }

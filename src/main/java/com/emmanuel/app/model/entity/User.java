@@ -1,4 +1,4 @@
-package com.emmanuel.app.model;
+package com.emmanuel.app.model.entity;
 
 import java.io.Serializable;
 

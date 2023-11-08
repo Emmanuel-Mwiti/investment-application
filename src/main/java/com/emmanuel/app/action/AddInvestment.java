@@ -1,5 +1,7 @@
 package com.emmanuel.app.action;
 
+import com.emmanuel.app.model.entity.Investment;
+import com.emmanuel.app.model.entity.Portfolio;
 import com.emmanuel.app.view.html.AddInvestmentPage;
 import org.apache.commons.lang.StringUtils;
 
@@ -18,9 +20,30 @@ import java.io.IOException;
  * @project: IntelliJ IDEA
  */
 @WebServlet("/add-investment")
-public class AddInvestment extends HttpServlet {
+public class AddInvestment extends BaseAction {
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        HttpSession httpSession = req.getSession();
+        new AddInvestmentPage().renderHtml(req, resp);
+    }
+
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         HttpSession httpSession = req.getSession();
-            new AddInvestmentPage().renderHtml(req, resp);
+        Portfolio selectedPortfolio = (Portfolio) httpSession.getAttribute("selectedPortfolio");
+
+        // Check if the selected portfolio is null
+        if (selectedPortfolio == null) {
+            System.out.println("selected portfolio is null");
+
+            resp.sendRedirect("home");
+            return;
+        }
+        Investment newInvestment = new Investment();
+        serializeForm(newInvestment, req.getParameterMap());
+
+        selectedPortfolio.getInvestments().add(newInvestment);
+
+        httpSession.setAttribute("selectedPortfolio", selectedPortfolio);
+
+        resp.sendRedirect("portfolio-details");
     }
 }

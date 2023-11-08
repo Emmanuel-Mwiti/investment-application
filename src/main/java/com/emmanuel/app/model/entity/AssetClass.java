@@ -1,8 +1,8 @@
-package com.emmanuel.app.model;
+package com.emmanuel.app.model.entity;
 
 public enum AssetClass {
     BONDS,
-    STOCK,
+    STOCKS,
     REAL_ESTATE,
     MONEY_MARKET,
     COMMODITIES

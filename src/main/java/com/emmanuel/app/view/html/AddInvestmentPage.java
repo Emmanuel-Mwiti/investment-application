@@ -30,7 +30,7 @@ public class AddInvestmentPage {
                 "</div>" +
                 "<div class=\"form-container\">" +
                 "    <h2>Add Investment</h2>" +
-                "    <form action=\"add-investment-action\" method=\"post\">" +
+                "    <form action=\"add-investment\" method=\"GET\">" +
                 "        <div class=\"form-group\">" +
                 "            <label class=\"form-label\" for=\"investmentType\">Investment Type:</label>" +
                 "            <select class=\"form-input\" name=\"investmentType\">" +
