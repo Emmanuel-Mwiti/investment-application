@@ -3,6 +3,7 @@ package com.emmanuel.app.model.entity;
 
 import com.emmanuel.app.model.entity.Investment;
 import com.emmanuel.app.view.html.ManuHtmlForm;
+import com.emmanuel.app.view.html.ManuHtmlFormField;
 import com.emmanuel.app.view.html.ManuTableColumnHeader;
 import org.apache.commons.lang.StringUtils;
 
@@ -16,13 +17,16 @@ import java.util.List;
  * @date: 11/1/23
  * @project: IntelliJ IDEA
  */
-//@ManuHtmlForm(label = "Portfolios", url = "./add-portfolio")
+@ManuHtmlForm(label = "Portfolios", url = "./add-portfolio")
 public class Portfolio implements Serializable {
     private static long nextId = 1;
     private Long id;
-    //    @ManuTableColumnHeader(header = "Portfolio Name")
+    @ManuTableColumnHeader(header = "Portfolio Name")
+    @ManuHtmlFormField(label = "Portfolio Name")
     private String name;
+    @ManuHtmlFormField(label = "Investment Horizon")
     private Long investmentHorizon;
+    @ManuHtmlFormField(label = "Expected Return on Investment")
     private Double expectedReturnOnInvestment;
     private Double performance;
     private String comment;

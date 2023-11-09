@@ -58,8 +58,8 @@ public class CustomHtml implements Serializable {
         if (manuHtmlForm == null)
             return StringUtils.EMPTY;
 
-        String htmlForm = "<br/>Add " + manuHtmlForm.label() + "<br/><form action=\"" + manuHtmlForm.url()
-                + "\" method=\"" + manuHtmlForm.httpMethod() + "\">";
+        StringBuilder htmlForm = new StringBuilder("<br/>Add " + manuHtmlForm.label() + "<br/><form action=\"" + manuHtmlForm.url()
+                + "\" method=\"" + manuHtmlForm.httpMethod() + "\">");
 
         Field[] fields = model.getDeclaredFields();
 
@@ -71,54 +71,15 @@ public class CustomHtml implements Serializable {
 
             String fieldName = field.getName();
 
-            htmlForm += "<label for=\""
-                    + (StringUtils.isBlank(formField.labelFor()) ? fieldName : formField.labelFor())
-                    + "\">"
-                    + (StringUtils.isBlank(formField.label()) ? fieldName : formField.label()) + ":</label><br>";
-            htmlForm += "<input type=\"text\" id=\""
-                    + (StringUtils.isBlank(formField.id()) ? fieldName : formField.id()) + "\" name=\""
-                    + (StringUtils.isBlank(formField.name()) ? fieldName : formField.name()) + "\" ><br>";
+            htmlForm.append("<label for=\"").append(StringUtils.isBlank(formField.labelFor()) ? fieldName : formField.labelFor()).append("\">").append(StringUtils.isBlank(formField.label()) ? fieldName : formField.label()).append(":</label><br>");
+            htmlForm.append("<input type=\"text\" id=\"").append(StringUtils.isBlank(formField.id()) ? fieldName : formField.id()).append("\" name=\"").append(StringUtils.isBlank(formField.name()) ? fieldName : formField.name()).append("\" ><br>");
         }
+        htmlForm.append("<input type=\"submit\" value=\"Submit\">");
+        htmlForm.append("</form><br/>");
 
-
-        htmlForm += generateInvestmentDetailsForm();
-
-        htmlForm += "<input type=\"submit\" value=\"Submit\">";
-        htmlForm += "</form><br/>";
-
-        return htmlForm;
+        return htmlForm.toString();
     }
 
-    private static String generateInvestmentDetailsForm() {
-        StringBuilder form = new StringBuilder();
-
-        form.append("<h3>Investment Details</h3>");
 
 
-        form.append("<div class=\"form-group\">");
-        form.append("<label class=\"form-label\" for=\"investmentType\">Investment Type:</label>");
-        form.append("<select class=\"form-input\" name=\"investmentType[]\">");
-        form.append("<option value=\"stocks\">Stocks</option>");
-        form.append("<option value=\"bonds\">Bonds</option>");
-        form.append("<option value=\"moneyMarket\">Money Market</option>");
-        form.append("</select>");
-        form.append("</div>");
-
-        form.append("<div class=\"form-group\">");
-        form.append("<label class=\"form-label\" for=\"initialAmount\">Initial Amount:</label>");
-        form.append("<input class=\"form-input\" type=\"number\" name=\"initialAmount[]\">");
-        form.append("</div>");
-
-        form.append("<div class=\"form-group\">");
-        form.append("<label class=\"form-label\" for=\"finalAmount\">Final Amount:</label>");
-        form.append("<input class=\"form-input\" type=\"number\" name=\"finalAmount[]\">");
-        form.append("</div>");
-
-        form.append("<div class=\"form-group\">");
-        form.append("<label class=\"form-label\" for=\"targetAllocation\">Target Allocation (%):</label>");
-        form.append("<input class=\"form-input\" type=\"number\" name=\"targetAllocation[]\">");
-        form.append("</div>");
-
-        return form.toString();
-    }
 }

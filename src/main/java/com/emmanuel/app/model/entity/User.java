@@ -14,6 +14,7 @@ public class User implements Serializable {
         this.id = generateNextId();
     }
 
+
     public User(String name, String password, String investmentGoal) {
         this.id = generateNextId();
         this.name = name;

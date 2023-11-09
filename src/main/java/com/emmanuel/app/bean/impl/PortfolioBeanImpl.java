@@ -4,9 +4,10 @@ import com.emmanuel.app.bean.PortfolioBeanI;
 import com.emmanuel.app.model.entity.Portfolio;
 import com.emmanuel.database.Database;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class PortfolioBeanImpl implements PortfolioBeanI {
+public class PortfolioBeanImpl implements PortfolioBeanI, Serializable {
 
     @Override
     public String portfolios() {
@@ -35,7 +36,6 @@ public class PortfolioBeanImpl implements PortfolioBeanI {
         Database database = Database.getDbInstance();
         database.getPortfolios().add(portfolio);
         return portfolio;
-
     }
 
     @Override

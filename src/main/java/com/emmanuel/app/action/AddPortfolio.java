@@ -30,9 +30,7 @@ public class AddPortfolio extends BaseAction {
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession httpSession = req.getSession();
 
-
         new AddPortfolioPage().renderHtml(req, resp);
-
     }
 
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

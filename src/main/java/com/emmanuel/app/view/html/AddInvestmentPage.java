@@ -1,5 +1,6 @@
 package com.emmanuel.app.view.html;
 
+import com.emmanuel.app.model.entity.Investment;
 import com.emmanuel.app.view.css.AddPortfolioCss;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,36 +26,12 @@ public class AddInvestmentPage {
                 "</head>" +
                 "<body>" +
                 "<div class=\"header\">" +
-                "    <h1>Welcome Back, " + session.getAttribute("username") + "!</h1>" +
+                "    <h1>Welcome, " + session.getAttribute("username") + "!</h1>" +
                 "    <h2>Your login time is: " + session.getAttribute("loggedInId") + "!</h2>" +
                 "</div>" +
                 "<div class=\"form-container\">" +
                 "    <h2>Add Investment</h2>" +
-                "    <form action=\"add-investment\" method=\"GET\">" +
-                "        <div class=\"form-group\">" +
-                "            <label class=\"form-label\" for=\"investmentType\">Investment Type:</label>" +
-                "            <select class=\"form-input\" name=\"investmentType\">" +
-                "                <option value=\"stocks\">Stocks</option>" +
-                "                <option value=\"bonds\">Bonds</option>" +
-                "                <option value=\"real-estate\">Real Estate</option>" +
-                "                <option value=\"cash-money-market\">Cash/Money Market</option>" +
-                "                <option value=\"commodities\">Commodities</option>" +
-                "            </select>" +
-                "        </div>" +
-                "        <div class=\"form-group\">" +
-                "            <label class=\"form-label\" for=\"initialAmount\">Initial Amount:</label>" +
-                "            <input class=\"form-input\" type=\"number\" id=\"initialAmount\" name=\"initialAmount\" required>" +
-                "        </div>" +
-                "        <div class=\"form-group\">" +
-                "            <label class=\"form-label\" for=\"finalAmount\">Final Amount:</label>" +
-                "            <input class=\"form-input\" type=\"number\" id=\"finalAmount\" name=\"finalAmount\" required>" +
-                "        </div>" +
-                "        <div class=\"form-group\">" +
-                "            <label class=\"form-label\" for=\"targetAllocation\">Target Allocation (%):</label>" +
-                "            <input class=\"form-input\" type=\"number\" id=\"targetAllocation\" name=\"targetAllocation\" required>" +
-                "        </div>" +
-                "        <button class=\"form-button\" type=\"submit\">Add Investment</button>" +
-                "    </form>" +
+                CustomHtml.form(Investment.class) +
                 "</div>" +
                 "</body>" +
                 "</html>");
