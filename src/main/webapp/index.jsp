@@ -27,13 +27,15 @@
                             <label for="password">Password</label>
                             <input type="password" class="form-control" id="password" name="password" required>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block" style="background-color: #007BFF; border: none;">Login</button>
+                        <button type="submit" class="btn btn-primary btn-block"
+                                style="background-color: #007BFF; border: none;">Login
+                        </button>
                     </form>
                     <p class="mt-3">
                         <a href="#" style="color: #007BFF;">Forgot Password?</a>
                     </p>
                     <p>
-                        Don't have an account? <a href="./sign-up" style="color: #007BFF;">Sign Up</a>
+                        Don't have an account? <a href="./Register.jsp" style="color: #007BFF;">Sign Up</a>
                     </p>
                 </div>
             </div>
@@ -42,10 +44,10 @@
 </div>
 
 <script>
-    $(document).ready(function() {
-        $("#loginForm").submit(function(e) {
-            var username = $("#username").val();
-            var password = $("#password").val();
+    $(document).ready(function () {
+        $("#loginForm").submit(function (e) {
+            const username = $("#username").val();
+            const password = $("#password").val();
 
             if (!isValidEmail(username) && !isValidUsername(username)) {
                 alert("Please enter a valid email or username.");
@@ -60,12 +62,12 @@
         });
 
         function isValidEmail(email) {
-            var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
             return emailRegex.test(email);
         }
 
         function isValidUsername(username) {
-            var usernameRegex = /^[a-zA-Z0-9]+$/;
+            const usernameRegex = /^[a-zA-Z0-9]+$/;
             return usernameRegex.test(username);
         }
     });

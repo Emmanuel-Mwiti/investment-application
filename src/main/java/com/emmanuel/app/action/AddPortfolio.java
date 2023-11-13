@@ -24,7 +24,7 @@ import static javax.swing.text.html.CSS.getAttribute;
  */
 @WebServlet("/add-portfolio")
 public class AddPortfolio extends BaseAction {
-    Portfolio portfolio = new Portfolio();
+
     PortfolioBeanI portfolioBean = new PortfolioBeanImpl();
 
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -36,10 +36,12 @@ public class AddPortfolio extends BaseAction {
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession httpSession = req.getSession();
 //     getAttribute("selectedPortfolio");
+        Portfolio portfolio = new Portfolio();
 
         serializeForm(portfolio,req.getParameterMap());
         portfolioBean.addPortfolio(portfolio);
         resp.sendRedirect("./home");
+
     }
 
 }

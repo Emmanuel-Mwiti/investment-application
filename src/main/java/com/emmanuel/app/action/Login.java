@@ -35,7 +35,6 @@ public class Login extends BaseAction {
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Database dBUsers = Database.getDbInstance();
 
         User loginUser = new User();
         serializeForm(loginUser, req.getParameterMap());
