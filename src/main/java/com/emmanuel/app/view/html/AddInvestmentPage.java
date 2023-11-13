@@ -1,7 +1,6 @@
 package com.emmanuel.app.view.html;
 
 import com.emmanuel.app.model.entity.Investment;
-import com.emmanuel.app.view.css.AddPortfolioCss;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,7 +20,7 @@ public class AddInvestmentPage {
                 "    <meta charset=\"UTF-8\">" +
                 "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">" +
                 "    <title>Add Investment - Investment App</title>" +
-                new AddPortfolioCss().getStyle() +
+//                new AddPortfolioCss().getStyle() +
                 "<link rel=\"stylesheet\" type=\"text/css\" href=\"AddPortfolio.css\">" +
                 "</head>" +
                 "<body>" +

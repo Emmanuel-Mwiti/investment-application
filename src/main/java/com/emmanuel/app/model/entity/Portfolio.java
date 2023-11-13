@@ -17,7 +17,7 @@ import java.util.List;
  * @date: 11/1/23
  * @project: IntelliJ IDEA
  */
-@ManuHtmlForm(label = "Portfolios", url = "./add-portfolio")
+//@ManuHtmlForm(label = "Portfolios", url = "./add-portfolio")
 public class Portfolio implements Serializable {
     private static long nextId = 1;
     private Long id;

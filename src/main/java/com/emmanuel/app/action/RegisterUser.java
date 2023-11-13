@@ -17,25 +17,17 @@ public class RegisterUser extends BaseAction {
     UserBeanI userBean = new UserBeanImpl();
 
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-//        User user = new User();
-//
-//        serializeForm(user, req.getParameterMap());
-//        userBean.addUser(user);
+        User user = new User();
 
-        String username = req.getParameter("name");
-        String password = req.getParameter("password");
-        String investmentGoal = req.getParameter("investmentGoal");
-
-        User user = new User(username, password, investmentGoal);
+        serializeForm(user, req.getParameterMap());
         userBean.addUser(user);
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println("Received user registration request: " + user);
-        System.out.println();
-        System.out.println();
-        System.out.println();
-
+//
+//        String username = req.getParameter("name");
+//        String password = req.getParameter("password");
+//        String investmentGoal = req.getParameter("investmentGoal");
+//
+//        User user = new User(username, password, investmentGoal);
+        userBean.addUser(user);
         resp.sendRedirect("./");
     }
 }

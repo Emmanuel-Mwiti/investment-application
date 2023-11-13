@@ -15,7 +15,7 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header" style="background-color: #007BFF; color: white;">
-                    <h4>Login to Your Investment Account</h4>
+                    <h4><%= application.getInitParameter("AppName") %></h4>
                 </div>
                 <div class="card-body">
                     <form id="loginForm" method="post" action="./login">
