@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet("/addInvestment")
 public class AddInvestment extends BaseAction {
@@ -16,8 +17,8 @@ public class AddInvestment extends BaseAction {
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        HttpSession httpSession = req.getSession();
-        Portfolio selectedPortfolio = (Portfolio) httpSession.getAttribute("selectedPortfolio");
+        HttpSession session = req.getSession();
+        Portfolio selectedPortfolio = (Portfolio) session.getAttribute("selectedPortfolio");
 
         if (selectedPortfolio == null) {
             System.out.println("Selected portfolio is null");
@@ -26,15 +27,26 @@ public class AddInvestment extends BaseAction {
         }
 
         Investment newInvestment = new Investment();
-        newInvestment.setAssetClass(AssetClass.valueOf(req.getParameter("investmentCategory")));
+        String assetClassParameter = req.getParameter("investmentCategory");
+
+        AssetClass assetClass = null;
+
+        if (assetClassParameter != null && !assetClassParameter.isEmpty()) {
+            try {
+                assetClass = AssetClass.valueOf(assetClassParameter);
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
+            }
+        }
+
+        newInvestment.setAssetClass(assetClass);
+        newInvestment.setAssetClass(assetClass);
         newInvestment.setInitialInvestmentAmount(Double.parseDouble(req.getParameter("initialInvestment")));
         newInvestment.setTargetAllocation(Double.parseDouble(req.getParameter("targetAllocation")));
         newInvestment.setFinalAmount(Double.parseDouble(req.getParameter("finalAmount")));
 
         selectedPortfolio.getInvestments().add(newInvestment);
 
-        httpSession.setAttribute("selectedPortfolio", selectedPortfolio);
-
-        resp.sendRedirect("portfolio-details");
+        resp.sendRedirect("portfolio-details?portfolioId=" + selectedPortfolio.getId());
     }
 }
