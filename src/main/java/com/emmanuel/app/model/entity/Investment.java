@@ -29,6 +29,9 @@ public class Investment implements Serializable {
     public Double getFinalValue() {
         return finalAmount;
     }
+    public void setFinalAmount(Double finalAmount) {
+        this.finalAmount = finalAmount;
+    }
 
     public void setFinalValue(Double finalAmount) {
         this.finalAmount = finalAmount;

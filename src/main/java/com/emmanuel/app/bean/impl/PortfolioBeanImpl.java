@@ -4,6 +4,7 @@ import com.emmanuel.app.bean.PortfolioBeanI;
 import com.emmanuel.app.model.entity.Portfolio;
 import com.emmanuel.database.Database;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
 import java.util.List;
 

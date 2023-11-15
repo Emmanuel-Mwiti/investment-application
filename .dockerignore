@@ -1,0 +1,23 @@
+target/
+
+*.iml
+.idea/
+.vscode/
+
+.git/
+.gitignore
+
+# Ignore Docker-related files
+Dockerfile
+.dockerignore
+
+# Ignore build artifacts
+*.class
+*.war
+
+# Ignore temporary files
+*~
+
+# Ignore documentation files
+README.md
+LICENSE

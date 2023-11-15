@@ -43,7 +43,7 @@ public class Portfolio implements Serializable {
         this.expectedReturnOnInvestment = expectedReturnOnInvestment;
     }
 
-    private Long generateNextId() {
+    public Long generateNextId() {
         return nextId++;
     }
 
@@ -123,6 +123,4 @@ public class Portfolio implements Serializable {
 
         return trBuilder.toString();
     }
-
-
 }

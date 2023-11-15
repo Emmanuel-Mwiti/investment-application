@@ -1,11 +1,16 @@
-# Use an official WildFly runtime as a parent image
-FROM jboss/wildfly:latest
+FROM maven:3.9.5 as build
 
-# Copy the WAR file into the deployments directory of WildFly
-COPY target/investmentapp.war /opt/jboss/wildfly/standalone/deployments/
+WORKDIR /app
 
-# Expose the ports your WildFly instance will run on (HTTP and management ports)
-EXPOSE 8080 8443
+COPY . .
 
-# Start WildFly
+RUN mvn clean compile package
+
+# Stage 2: Deploy the application to WildFly
+FROM jboss/wildfly:latest AS deploy
+
+COPY --from=build /app/target/investmentapp.war /opt/jboss/wildfly/standalone/deployments/
+
+EXPOSE 8080
+
 CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0"]

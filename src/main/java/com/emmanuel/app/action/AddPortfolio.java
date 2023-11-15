@@ -25,14 +25,15 @@ public class AddPortfolio extends BaseAction {
 
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("/Portfolio_add.jsp").forward(req, resp);
-
-//        new AddPortfolioPage().renderHtml(req, resp);
     }
 
-    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         HttpSession httpSession = req.getSession();
-//     getAttribute("selectedPortfolio");
+
         Portfolio portfolio = new Portfolio();
+        portfolio.setId(portfolio.generateNextId());
+//        httpSession.setAttribute("selectedPortfolio", portfolio);
+
 
         serializeForm(portfolio,req.getParameterMap());
         portfolioBean.addPortfolio(portfolio);
