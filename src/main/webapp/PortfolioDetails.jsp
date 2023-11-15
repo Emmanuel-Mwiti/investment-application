@@ -7,6 +7,7 @@
 <%
     Portfolio portfolio = (Portfolio) session.getAttribute("selectedPortfolio");
     List<Investment> investments = portfolio.getInvestments();
+    request.setAttribute("investments", investments);
 %>
 
 <!DOCTYPE html>
@@ -70,9 +71,9 @@
 <body>
 <div class="portfolio-details">
     <h2>Portfolio Details</h2>
-    <p>Portfolio Name: <%= portfolio.getName() %></p>
-    <p>Investment Horizon: <%= portfolio.getInvestmentHorizon() %> years</p>
-    <p>Expected ROI: <%= portfolio.getExpectedReturnOnInvestment() %>%</p>
+    <p>Portfolio Name: ${portfolio.name}</p>
+    <p>Investment Horizon: ${portfolio.investmentHorizon} years</p>
+    <p>Expected ROI: ${portfolio.expectedReturnOnInvestment}%</p>
     <div class="button-container">
         <form action="analyze-risk" method="post">
             <button class="analyze-risk-button" type="submit">Analyze Risk</button>
@@ -105,59 +106,35 @@
 
             <button class="add-investment-button" type="submit">Add Investment</button>
         </form>
-
     </div>
 </div>
 
 <div class="investment-table">
     <h3>Investments:</h3>
-    <%
-        System.out.println("Investments Size: " + (investments != null ? investments.size() : 0));
-    %>
-    <% if (investments != null && !investments.isEmpty()) { %>
-    <table>
-        <tr>
-            <th>Asset Class</th>
-            <th>Initial Amount</th>
-            <th>Target Allocation</th>
-            <th>Final Amount</th>
-        </tr>
-        <% for (Investment investment : investments) { %>
-        <tr>
-            <td><%= investment.getAssetClass() %></td>
-            <td><%= investment.getInitialInvestmentAmount() %></td>
-            <td><%= investment.getTargetAllocation() %></td>
-            <td><%= investment.getFinalValue() %></td>
-        </tr>
-        <% } %>
-    </table>
-    <% } else { %>
-    <p>No investments in this portfolio.</p>
-    <% } %>
-<%--    <c:choose>--%>
-<%--        <c:when test="${not empty investments}">--%>
-<%--            <table>--%>
-<%--                <tr>--%>
-<%--                    <th>Asset Class</th>--%>
-<%--                    <th>Initial Amount</th>--%>
-<%--                    <th>Target Allocation</th>--%>
-<%--                    <th>Final Amount</th>--%>
-<%--                </tr>--%>
-<%--                <c:forEach var="investment" items="${investments}">--%>
-<%--                    <tr>--%>
-<%--                        <td>${investment.assetClass}</td>--%>
-<%--                        <td>${investment.initialInvestmentAmount}</td>--%>
-<%--                        <td>${investment.targetAllocation}</td>--%>
-<%--                        <td>${investment.finalValue}</td>--%>
-<%--                    </tr>--%>
-<%--                </c:forEach>--%>
-<%--            </table>--%>
-<%--        </c:when>--%>
-<%--        <c:otherwise>--%>
-<%--            <p>No investments in this portfolio.</p>--%>
-<%--        </c:otherwise>--%>
-<%--    </c:choose>--%>
+    <c:choose>
+        <c:when test="${not empty investments}">
 
+            <table>
+                <tr>
+                    <th>Asset Class</th>
+                    <th>Initial Amount</th>
+                    <th>Target Allocation</th>
+                    <th>Final Amount</th>
+                </tr>
+                <c:forEach var="investment" items="${investments}">
+                    <tr>
+                        <td>${investment.assetClass}</td>
+                        <td>${investment.initialInvestmentAmount}</td>
+                        <td>${investment.targetAllocation}</td>
+                        <td>${investment.finalValue}</td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </c:when>
+        <c:otherwise>
+            <p>No investments in this portfolio. You will need first to add the investments</p>
+        </c:otherwise>
+    </c:choose>
 </div>
 
 </body>

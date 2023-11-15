@@ -1,18 +1,11 @@
-<%--
-    Created by IntelliJ IDEA.
-    User: emmanuel
-    Date: 11/9/23
-    Time: 1:34 AM
-    To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register User</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<%--    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>--%>
     <link rel="stylesheet" href="#">
 </head>
 <body style="background-color: #f5f5f5;">
@@ -37,8 +30,7 @@
                             <label for="confirmPassword">Confirm Password</label>
                             <input type="password" class="form-control" id="confirmPassword" required>
                         </div>
-                        <div id="passwordMatchError" class="text-danger" style="display: none;">Passwords do not
-                            match.
+                        <div id="passwordMatchError" class="text-danger" style="display: none;">Passwords do not match.
                         </div>
                         <div class="form-group">
                             <label for="investmentGoal">Investment Goal</label>
@@ -53,17 +45,6 @@
         </div>
     </div>
 </div>
+<script src="./js/Validation.js"></script>
 </body>
-<script>
-    $(document).ready(function () {
-        $('#signupForm').submit(function (e) {
-            var signupPassword = $('#signupPassword').val();
-            var confirmPassword = $('#confirmPassword').val();
-            if (signupPassword !== confirmPassword) {
-                $('#passwordMatchError').show();
-                e.preventDefault();
-            }
-        });
-    });
-</script>
 </html>
