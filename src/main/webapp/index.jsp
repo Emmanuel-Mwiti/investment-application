@@ -1,3 +1,5 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +17,7 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header" style="background-color: #007BFF; color: white;">
-                    <h4><%= application.getInitParameter("AppName") %></h4>
+                    <h4>${applicationScope.AppName}</h4>
                 </div>
                 <div class="card-body">
                     <form id="loginForm" method="post" action="./login">
@@ -43,34 +45,6 @@
     </div>
 </div>
 
-<script>
-    $(document).ready(function () {
-        $("#loginForm").submit(function (e) {
-            const username = $("#username").val();
-            const password = $("#password").val();
-
-            if (!isValidEmail(username) && !isValidUsername(username)) {
-                alert("Please enter a valid email or username.");
-                e.preventDefault();
-                return;
-            }
-
-            if (password.length < 4) {
-                alert("Password must be at least 4 characters long.");
-                e.preventDefault();
-            }
-        });
-
-        function isValidEmail(email) {
-            const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-            return emailRegex.test(email);
-        }
-
-        function isValidUsername(username) {
-            const usernameRegex = /^[a-zA-Z0-9]+$/;
-            return usernameRegex.test(username);
-        }
-    });
-</script>
+<script src="./js/Index.js"></script>
 </body>
 </html>

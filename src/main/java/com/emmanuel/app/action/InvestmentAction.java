@@ -9,10 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet("/addInvestment")
-public class AddInvestment extends BaseAction {
+public class InvestmentAction extends BaseAction {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
     }
 

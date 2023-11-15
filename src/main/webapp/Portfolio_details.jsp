@@ -16,57 +16,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Details - Investment App</title>
-    <style>
-        .portfolio-details {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: #f2f2f2;
-            text-align: left;
-        }
-
-        .analyze-risk-button,
-        .add-investment-button {
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 20px;
-            margin: 10px;
-            cursor: pointer;
-        }
-
-        .analyze-risk-button:hover,
-        .add-investment-button:hover {
-            background-color: #0056b3;
-        }
-
-        .button-container {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .investment-table {
-            margin-top: 20px;
-        }
-
-        .investment-table table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-
-        .investment-table table, th, td {
-            border: 1px solid #ddd;
-        }
-
-        .investment-table th, .investment-table td {
-            padding: 10px;
-            text-align: left;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="Styles/Portfolio_Details.css">
 </head>
 <body>
 <div class="portfolio-details">
@@ -101,7 +51,6 @@
 
             <label for="finalAmount">Final Amount:</label>
             <input type="text" name="finalAmount" id="finalAmount" required>
-
             <br>
 
             <button class="add-investment-button" type="submit">Add Investment</button>

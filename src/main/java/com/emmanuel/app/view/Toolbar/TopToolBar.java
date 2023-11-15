@@ -20,7 +20,6 @@ public class TopToolBar implements Menu, Serializable {
     {
         links.add(new MenuLink("./home", "Home", MenuLinkStatus.ACTIVE));
         links.add(new MenuLink("./add-portfolio", "Add Portfolio", MenuLinkStatus.NOT_ACTIVE));
-        links.add(new MenuLink("./analyze-risk", "Analyze Risk", MenuLinkStatus.NOT_ACTIVE));
         links.add(new MenuLink("./logout", "Logout", MenuLinkStatus.NOT_ACTIVE));
     }
 

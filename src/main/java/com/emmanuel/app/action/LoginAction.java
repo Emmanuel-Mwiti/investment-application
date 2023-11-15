@@ -3,11 +3,9 @@ package com.emmanuel.app.action;
 import com.emmanuel.app.bean.AuthBeanI;
 import com.emmanuel.app.bean.impl.AuthBeanImp;
 import com.emmanuel.app.model.entity.User;
-import com.emmanuel.database.Database;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -24,7 +22,7 @@ import java.util.Date;
  * @project: IntelliJ IDEA
  */
 @WebServlet(urlPatterns = "/login")
-public class Login extends BaseAction {
+public class LoginAction extends BaseAction {
     AuthBeanI authBean = new AuthBeanImp();
 
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {

@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Add Portfolio</title>
-    <link rel="stylesheet" type="text/css" href="Styles/Add_portfolio.css">
+    <link rel="stylesheet" type="text/css" href="Styles/Portfolio_add.css">
 </head>
 <body>
 <div class="form-container">

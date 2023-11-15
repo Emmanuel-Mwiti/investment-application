@@ -19,7 +19,7 @@ import java.io.IOException;
  * @project: IntelliJ IDEA
  */
 @WebServlet("/add-portfolio")
-public class AddPortfolio extends BaseAction {
+public class PortfolioAction extends BaseAction {
 
     PortfolioBeanI portfolioBean = new PortfolioBeanImpl();
 
