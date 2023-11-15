@@ -7,5 +7,5 @@ public interface PortfolioBeanI {
 
     Portfolio addPortfolio(Portfolio portfolio);
 
-    void deletePortfolio(Portfolio portfolio);
+    void deletePortfolio(String portfolioId);
 }

@@ -1,8 +1,5 @@
 package com.emmanuel.app.view.html;
 
-import com.emmanuel.app.view.html.ManuHtmlForm;
-import com.emmanuel.app.view.html.ManuHtmlFormField;
-import com.emmanuel.app.view.html.ManuTableColumnHeader;
 import org.apache.commons.lang.StringUtils;
 
 import java.io.Serializable;
@@ -20,10 +17,10 @@ public class CustomHtml implements Serializable {
         trBuilder.append("<table><tr>");
 
         for (Field field : fields) {
-            if (!field.isAnnotationPresent(ManuTableColumnHeader.class))
+            if (!field.isAnnotationPresent(TableColumnHeader.class))
                 continue;
 
-            trBuilder.append("<th>").append(field.getAnnotation(ManuTableColumnHeader.class).header()).append("</th>");
+            trBuilder.append("<th>").append(field.getAnnotation(TableColumnHeader.class).header()).append("</th>");
         }
 
         trBuilder.append("</tr>");
@@ -32,7 +29,7 @@ public class CustomHtml implements Serializable {
 
             trBuilder.append("<tr>");
             for (Field field : fields) {
-                if (!field.isAnnotationPresent(ManuTableColumnHeader.class))
+                if (!field.isAnnotationPresent(TableColumnHeader.class))
                     continue;
 
                 try {
@@ -51,9 +48,9 @@ public class CustomHtml implements Serializable {
     }
 
     public static String form(Class<?> model) {
-        ManuHtmlForm manuHtmlForm = null;
-        if (model.isAnnotationPresent(ManuHtmlForm.class))
-            manuHtmlForm = model.getAnnotation(ManuHtmlForm.class);
+        HtmlForm manuHtmlForm = null;
+        if (model.isAnnotationPresent(HtmlForm.class))
+            manuHtmlForm = model.getAnnotation(HtmlForm.class);
 
         if (manuHtmlForm == null)
             return StringUtils.EMPTY;
@@ -64,10 +61,10 @@ public class CustomHtml implements Serializable {
         Field[] fields = model.getDeclaredFields();
 
         for (Field field : fields) {
-            if (!field.isAnnotationPresent(ManuHtmlFormField.class))
+            if (!field.isAnnotationPresent(HtmlFormField.class))
                 continue;
 
-            ManuHtmlFormField formField = field.getAnnotation(ManuHtmlFormField.class);
+            HtmlFormField formField = field.getAnnotation(HtmlFormField.class);
 
             String fieldName = field.getName();
 

@@ -24,7 +24,6 @@ public class PortfolioDetailsAction extends HttpServlet {
             if (selectedPortfolio != null) {
                 HttpSession httpSession = req.getSession();
                 httpSession.setAttribute("selectedPortfolio", selectedPortfolio);
-                System.out.println(">>>>>Entered here");
                 req.getRequestDispatcher("/Portfolio_details.jsp").forward(req, resp);
                 return;
             }

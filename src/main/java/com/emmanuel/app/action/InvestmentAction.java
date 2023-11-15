@@ -20,8 +20,8 @@ public class InvestmentAction extends BaseAction {
         Portfolio selectedPortfolio = (Portfolio) session.getAttribute("selectedPortfolio");
 
         if (selectedPortfolio == null) {
-            System.out.println("Selected portfolio is null");
-            resp.sendRedirect("home");
+            System.out.println(">>>>>>>>>>Selected portfolio is null");
+            resp.sendRedirect("/home");
             return;
         }
 
@@ -37,8 +37,7 @@ public class InvestmentAction extends BaseAction {
                 e.printStackTrace();
             }
         }
-
-        newInvestment.setAssetClass(assetClass);
+        System.out.println("Selected portfolio>>>>>>"+selectedPortfolio);
         newInvestment.setAssetClass(assetClass);
         newInvestment.setInitialInvestmentAmount(Double.parseDouble(req.getParameter("initialInvestment")));
         newInvestment.setTargetAllocation(Double.parseDouble(req.getParameter("targetAllocation")));

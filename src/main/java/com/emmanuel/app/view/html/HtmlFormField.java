@@ -7,7 +7,7 @@ import java.lang.annotation.Target;
 
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface ManuHtmlFormField {
+public @interface HtmlFormField {
     String labelFor() default "";
 
     String label() default "";

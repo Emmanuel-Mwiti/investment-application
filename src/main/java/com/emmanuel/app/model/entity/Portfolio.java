@@ -1,13 +1,13 @@
 package com.emmanuel.app.model.entity;
 
 
-import com.emmanuel.app.model.entity.Investment;
-import com.emmanuel.app.view.html.ManuHtmlForm;
-import com.emmanuel.app.view.html.ManuHtmlFormField;
-import com.emmanuel.app.view.html.ManuTableColumnHeader;
+import com.emmanuel.app.view.html.HtmlForm;
+import com.emmanuel.app.view.html.HtmlFormField;
+import com.emmanuel.app.view.html.TableColumnHeader;
 import org.apache.commons.lang.StringUtils;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,16 +17,16 @@ import java.util.List;
  * @date: 11/1/23
  * @project: IntelliJ IDEA
  */
-//@ManuHtmlForm(label = "Portfolios", url = "./add-portfolio")
+@HtmlForm(label = "Portfolios", url = "./add-portfolio")
 public class Portfolio implements Serializable {
     private static long nextId = 1;
     private Long id;
-    @ManuTableColumnHeader(header = "Portfolio Name")
-    @ManuHtmlFormField(label = "Portfolio Name")
+
+    @HtmlFormField(label = "Portfolio Name")
     private String name;
-    @ManuHtmlFormField(label = "Investment Horizon")
+    @HtmlFormField(label = "Investment Horizon")
     private Long investmentHorizon;
-    @ManuHtmlFormField(label = "Expected Return on Investment")
+    @HtmlFormField(label = "Expected Return on Investment")
     private Double expectedReturnOnInvestment;
     private Double performance;
     private String comment;
@@ -96,6 +96,9 @@ public class Portfolio implements Serializable {
     }
 
     public List<Investment> getInvestments() {
+        if (investments == null) {
+            investments = new ArrayList<>();
+        }
         return investments;
     }
 

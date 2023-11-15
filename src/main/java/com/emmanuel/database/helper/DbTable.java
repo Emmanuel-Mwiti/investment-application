@@ -1,4 +1,4 @@
-package com.emmanuel.app.view.html;
+package com.emmanuel.database.helper;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -7,8 +7,7 @@ import java.lang.annotation.Target;
 
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface ManuHtmlForm {
-    String label();
-    String url();
-    String httpMethod() default "POST";
+public @interface DbTable {
+
+    String tableName();
 }

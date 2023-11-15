@@ -1,13 +1,20 @@
 package com.emmanuel.app.model.entity;
 
-import java.io.Serializable;
+import com.emmanuel.app.view.html.HtmlForm;
+import com.emmanuel.app.view.html.HtmlFormField;
 
+import java.io.Serializable;
+@HtmlForm(label = "Portfolios", url = "./addInvestment")
 public class Investment implements Serializable {
     private static long nextId = 1;
     private Long id;
+    @HtmlFormField(label = "Asset class")
     private AssetClass assetClass;
+    @HtmlFormField(label = "Initial Amount")
     private Double initialAmount;
+    @HtmlFormField(label = "Portfolio Name")
     private Double targetAllocation;
+    @HtmlFormField(label = "Portfolio Name")
     private Double finalAmount;
 
     public Investment() {

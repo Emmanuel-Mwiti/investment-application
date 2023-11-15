@@ -44,10 +44,13 @@ public class LoginAction extends BaseAction {
             String formattedDate = dateFormat.format(new Date());
             httpSession.setAttribute("loggedInId", formattedDate);
             httpSession.setAttribute("username", loginUser.getName());
-
-            httpSession.setAttribute("loggedInId", new Date().getTime() + "");
-            httpSession.setAttribute("username", loginUser.getName());
             httpSession.setAttribute("investmentGoal", loginUser.getInvestmentGoal());
+
+
+//            loginUser.setInvestmentGoal(investmentGoal);
+
+
+
 
             resp.sendRedirect("./home");
 

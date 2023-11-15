@@ -18,7 +18,7 @@ import java.io.IOException;
  * @date: 11/4/23
  * @project: IntelliJ IDEA
  */
-@WebServlet("/add-portfolio")
+@WebServlet(urlPatterns = "/add-portfolio")
 public class PortfolioAction extends BaseAction {
 
     PortfolioBeanI portfolioBean = new PortfolioBeanImpl();
@@ -33,7 +33,6 @@ public class PortfolioAction extends BaseAction {
         Portfolio portfolio = new Portfolio();
         portfolio.setId(portfolio.generateNextId());
 //        httpSession.setAttribute("selectedPortfolio", portfolio);
-
 
         serializeForm(portfolio,req.getParameterMap());
         portfolioBean.addPortfolio(portfolio);

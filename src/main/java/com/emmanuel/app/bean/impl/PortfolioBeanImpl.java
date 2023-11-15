@@ -40,6 +40,20 @@ public class PortfolioBeanImpl implements PortfolioBeanI, Serializable {
     }
 
     @Override
-    public void deletePortfolio(Portfolio investment) {
+    public void deletePortfolio(String portfolioId) {
+        Database database = Database.getDbInstance();
+        List<Portfolio> portfolios = database.getPortfolios();
+
+        Portfolio portfolioToRemove = null;
+        for (Portfolio portfolio : portfolios) {
+            if (portfolio.getId().equals(portfolioId)) {
+                portfolioToRemove = portfolio;
+                break;
+            }
+        }
+
+        if (portfolioToRemove != null) {
+            portfolios.remove(portfolioToRemove);
+        }
     }
 }
