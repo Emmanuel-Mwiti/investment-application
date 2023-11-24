@@ -1,7 +1,7 @@
 package com.emmanuel.app.action;
 
 import com.emmanuel.app.bean.PortfolioBeanI;
-import com.emmanuel.app.bean.impl.PortfolioBeanImpl;
+import com.emmanuel.app.bean.PortfolioBean;
 import com.emmanuel.app.view.html.AppPage;
 
 import javax.servlet.annotation.WebServlet;
@@ -14,7 +14,7 @@ import java.io.IOException;
 @WebServlet("/home")
 public class HomeAction extends HttpServlet {
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        PortfolioBeanI portfolioBean = new PortfolioBeanImpl();
+        PortfolioBeanI portfolioBean = new PortfolioBean();
         HttpSession session = req.getSession();
 
         new AppPage().renderHtml(req, resp,

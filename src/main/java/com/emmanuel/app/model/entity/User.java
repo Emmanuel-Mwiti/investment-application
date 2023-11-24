@@ -1,30 +1,28 @@
 package com.emmanuel.app.model.entity;
 
+import com.emmanuel.database.helper.DbTable;
+import com.emmanuel.database.helper.DbTableColumn;
+
 import java.io.Serializable;
-
+@DbTable(tableName = "users")
 public class User implements Serializable {
-    private static long nextId = 1;
-
+//    @DbTableColumn(columnName = "user_id")
     private Long id;
+    @DbTableColumn(columnName = "user_name")
     private String name;
+    @DbTableColumn(columnName = "user_password")
     private String password;
+    @DbTableColumn(columnName = "investment_goal")
     private String investmentGoal;
+    public User(){
 
-    public User() {
-        this.id = generateNextId();
     }
-
-
     public User(String name, String password, String investmentGoal) {
-        this.id = generateNextId();
         this.name = name;
         this.password = password;
         this.investmentGoal = investmentGoal;
     }
 
-    private Long generateNextId() {
-        return nextId++;
-    }
 
     public Long getId() {
         return id;

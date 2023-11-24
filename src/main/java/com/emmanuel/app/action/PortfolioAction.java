@@ -1,7 +1,7 @@
 package com.emmanuel.app.action;
 
 import com.emmanuel.app.bean.PortfolioBeanI;
-import com.emmanuel.app.bean.impl.PortfolioBeanImpl;
+import com.emmanuel.app.bean.PortfolioBean;
 import com.emmanuel.app.model.entity.Portfolio;
 
 import javax.servlet.ServletException;
@@ -21,7 +21,7 @@ import java.io.IOException;
 @WebServlet(urlPatterns = "/add-portfolio")
 public class PortfolioAction extends BaseAction {
 
-    PortfolioBeanI portfolioBean = new PortfolioBeanImpl();
+    PortfolioBeanI portfolioBean = new PortfolioBean();
 
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("/Portfolio_add.jsp").forward(req, resp);

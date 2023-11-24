@@ -4,6 +4,8 @@ package com.emmanuel.app.model.entity;
 import com.emmanuel.app.view.html.HtmlForm;
 import com.emmanuel.app.view.html.HtmlFormField;
 import com.emmanuel.app.view.html.TableColumnHeader;
+import com.emmanuel.database.helper.DbTable;
+import com.emmanuel.database.helper.DbTableColumn;
 import org.apache.commons.lang.StringUtils;
 
 import java.io.Serializable;
@@ -18,18 +20,25 @@ import java.util.List;
  * @project: IntelliJ IDEA
  */
 @HtmlForm(label = "Portfolios", url = "./add-portfolio")
+@DbTable(tableName = "portfolios")
 public class Portfolio implements Serializable {
     private static long nextId = 1;
     private Long id;
 
     @HtmlFormField(label = "Portfolio Name")
+    @DbTableColumn(columnName = "name")
     private String name;
     @HtmlFormField(label = "Investment Horizon")
+    @DbTableColumn(columnName = "investment_horizon")
     private Long investmentHorizon;
     @HtmlFormField(label = "Expected Return on Investment")
+    @DbTableColumn(columnName = "roi")
     private Double expectedReturnOnInvestment;
+    @DbTableColumn(columnName = "performance")
     private Double performance;
+    @DbTableColumn(columnName = "comment")
     private String comment;
+
     private List<Investment> investments;
 
     public Portfolio() {

@@ -1,14 +1,12 @@
-package com.emmanuel.app.bean.impl;
+package com.emmanuel.app.bean;
 
-import com.emmanuel.app.bean.PortfolioBeanI;
 import com.emmanuel.app.model.entity.Portfolio;
 import com.emmanuel.database.Database;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
 import java.util.List;
 
-public class PortfolioBeanImpl implements PortfolioBeanI, Serializable {
+public class PortfolioBean implements PortfolioBeanI, Serializable {
 
     @Override
     public String portfolios() {
@@ -54,6 +52,9 @@ public class PortfolioBeanImpl implements PortfolioBeanI, Serializable {
 
         if (portfolioToRemove != null) {
             portfolios.remove(portfolioToRemove);
+            System.out.println("Portfolio removed successfully. ID: " + portfolioId);
+        } else {
+            System.out.println("Portfolio not found. ID: " + portfolioId);
         }
     }
 }

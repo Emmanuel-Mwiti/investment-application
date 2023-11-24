@@ -2,18 +2,24 @@ package com.emmanuel.app.model.entity;
 
 import com.emmanuel.app.view.html.HtmlForm;
 import com.emmanuel.app.view.html.HtmlFormField;
+import com.emmanuel.database.helper.DbTable;
+import com.emmanuel.database.helper.DbTableColumn;
 
 import java.io.Serializable;
 @HtmlForm(label = "Portfolios", url = "./addInvestment")
+@DbTable(tableName = "investments")
 public class Investment implements Serializable {
     private static long nextId = 1;
     private Long id;
     @HtmlFormField(label = "Asset class")
     private AssetClass assetClass;
     @HtmlFormField(label = "Initial Amount")
+    @DbTableColumn(columnName = "initial_amount")
     private Double initialAmount;
     @HtmlFormField(label = "Portfolio Name")
+    @DbTableColumn(columnName = "target_allocation")
     private Double targetAllocation;
+    @DbTableColumn(columnName = "final_amount")
     @HtmlFormField(label = "Portfolio Name")
     private Double finalAmount;
 

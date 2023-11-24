@@ -1,7 +1,7 @@
 package com.emmanuel.app.action;
 
 import com.emmanuel.app.bean.PortfolioBeanI;
-import com.emmanuel.app.bean.impl.PortfolioBeanImpl;
+import com.emmanuel.app.bean.PortfolioBean;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,7 +19,7 @@ import java.io.IOException;
 @WebServlet("/delete-portfolio")
     public class DeletePortfolioAction extends HttpServlet {
 
-        private final PortfolioBeanI portfolioBean = new PortfolioBeanImpl();
+        private final PortfolioBeanI portfolioBean = new PortfolioBean();
 
         protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, IOException {
             String portfolioId = req.getParameter("portfolioId");

@@ -1,7 +1,7 @@
 package com.emmanuel.app.action;
 
 import com.emmanuel.app.bean.AuthBeanI;
-import com.emmanuel.app.bean.impl.AuthBeanImp;
+import com.emmanuel.app.bean.AuthBean;
 import com.emmanuel.app.model.entity.User;
 
 import javax.servlet.ServletException;
@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -23,7 +24,7 @@ import java.util.Date;
  */
 @WebServlet(urlPatterns = "/login")
 public class LoginAction extends BaseAction {
-    AuthBeanI authBean = new AuthBeanImp();
+    AuthBeanI authBean = new AuthBean();
 
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         resp.sendRedirect("./");
@@ -37,7 +38,12 @@ public class LoginAction extends BaseAction {
         User loginUser = new User();
         serializeForm(loginUser, req.getParameterMap());
 
-        User userDetails = authBean.athenticate(loginUser);
+        User userDetails = null;
+        try {
+            userDetails = authBean.athenticate(loginUser);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
         if (userDetails != null) {
             HttpSession httpSession = req.getSession(true);
@@ -45,12 +51,6 @@ public class LoginAction extends BaseAction {
             httpSession.setAttribute("loggedInId", formattedDate);
             httpSession.setAttribute("username", loginUser.getName());
             httpSession.setAttribute("investmentGoal", loginUser.getInvestmentGoal());
-
-
-//            loginUser.setInvestmentGoal(investmentGoal);
-
-
-
 
             resp.sendRedirect("./home");
 
